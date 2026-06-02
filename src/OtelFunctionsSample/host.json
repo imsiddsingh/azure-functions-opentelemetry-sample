@@ -1,0 +1,25 @@
+{
+  "version": "2.0",
+
+  // Tell the Functions host to use OpenTelemetry as its telemetry pipeline.
+  // Without this, the host falls back to its built-in Application Insights
+  // integration. This is the single switch that turns on OTel mode.
+  "telemetryMode": "OpenTelemetry",
+
+  "logging": {
+    // IMPORTANT: these levels apply to the HOST process and use the
+    // "Function.<FunctionName>" category (the name from the [Function("...")]
+    // attribute) — NOT your C# class/namespace.
+    //
+    // Your WORKER (application) code is filtered separately by
+    //   Logging__LogLevel__<Namespace.ClassName>
+    // set as an app setting / in local.settings.json. See README "Gotcha #2".
+    "logLevel": {
+      "default": "Information",
+      "Function.Hello": "Information",
+      "Function.Heartbeat": "Information",
+      "Host.Results": "Information",
+      "Host.Aggregator": "Warning"
+    }
+  }
+}

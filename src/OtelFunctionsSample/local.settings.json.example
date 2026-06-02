@@ -1,0 +1,22 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+
+    // Functions Core Tools sets this to "Development" automatically when you run
+    // locally, but we set it explicitly so Program.cs reliably skips AAD auth
+    // locally (see Gotcha #1). Remove/override in Azure.
+    "AZURE_FUNCTIONS_ENVIRONMENT": "Development",
+
+    // Paste YOUR Application Insights connection string here (Portal ->
+    // your App Insights resource -> Overview -> Connection String).
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://<region>.in.applicationinsights.azure.com/;LiveEndpoint=https://<region>.livediagnostics.monitor.azure.com/",
+
+    // ── Optional: per-category WORKER log levels (your application code) ──
+    // Default is Warning if unset. Uncomment to see Information logs from a
+    // specific class while keeping everything else quiet.
+    // "Logging__LogLevel__Default": "Information",
+    // "Logging__LogLevel__OtelFunctionsSample.Functions.HeartbeatTimerFunction": "Information"
+  }
+}

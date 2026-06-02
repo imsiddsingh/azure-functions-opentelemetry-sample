@@ -1,0 +1,23 @@
+# Build output
+bin/
+obj/
+out/
+
+# Azure Functions local config — NEVER commit (may contain real secrets/keys)
+local.settings.json
+
+# Azurite local storage emulator
+__azurite_db*__.json
+__blobstorage__/
+__queuestorage__/
+
+# Visual Studio / Rider / VS Code
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# .NET
+project.lock.json
+*.nupkg
