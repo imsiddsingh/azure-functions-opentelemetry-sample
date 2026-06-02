@@ -1,5 +1,7 @@
 # Azure Functions + OpenTelemetry → Application Insights (.NET isolated)
 
+[![build](https://github.com/imsiddsingh/azure-functions-opentelemetry-sample/actions/workflows/build.yml/badge.svg)](https://github.com/imsiddsingh/azure-functions-opentelemetry-sample/actions/workflows/build.yml)
+
 A small, **zero-dependency** sample that shows how to send Azure Functions
 telemetry (logs + requests + dependencies + traces) to **Application Insights
 via OpenTelemetry**, instead of the classic Application Insights SDK.

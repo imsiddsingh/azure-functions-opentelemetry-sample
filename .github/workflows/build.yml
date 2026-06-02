@@ -1,0 +1,30 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          # 10.0.x builds the function project; 8.0.x is needed because the
+          # Functions SDK generates a WorkerExtensions project that targets net8.0.
+          dotnet-version: |
+            8.0.x
+            10.0.x
+
+      - name: Restore
+        run: dotnet restore OtelFunctionsSample.slnx
+
+      - name: Build
+        run: dotnet build OtelFunctionsSample.slnx --no-restore -c Release
